@@ -76,14 +76,16 @@ class WPMUAcfGoogleMapsKey
 
   public function addOptionsPage($data)
   {
-    acf_add_options_page(array(
-      'page_title'    => 'ACF Google Maps Key',
-      'menu_title'    => 'ACF Google Maps Key',
-      'menu_slug'     => 'acf-google-maps-key',
-      'capability'    => 'edit_posts',
-      'redirect'      => false,
-      'parent'        => 'options-general.php'
-    ));
+    if(function_exists('acf_add_options_page')) {
+      acf_add_options_page(array(
+        'page_title'    => 'ACF Google Maps Key',
+        'menu_title'    => 'ACF Google Maps Key',
+        'menu_slug'     => 'acf-google-maps-key',
+        'capability'    => 'edit_posts',
+        'redirect'      => false,
+        'parent'        => 'options-general.php'
+      ));
+    }
   }
 
   public function filterOption($api) {
